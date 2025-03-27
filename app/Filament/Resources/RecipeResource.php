@@ -86,21 +86,21 @@ class RecipeResource extends Resource
 
                             TextInput::make('protein')
                                 ->live(onBlur: true)
-                                ->afterStateUpdated(fn (Get $get, Set $set) => $set('calories', ($get('carbs') * 4) + ($get('protein') * 4) + ($get('fats') * 9)))
+                                ->afterStateUpdated(fn (Get $get, Set $set) => $set('calories', ((int)$get('carbs') * 4) + ((int)$get('protein') * 4) + ((int)$get('fats') * 9)))
                                 ->suffix('g')
                                 ->required()
                                 ->integer(),
 
                             TextInput::make('carbs')
                                 ->live(onBlur: true)
-                                ->afterStateUpdated(fn (Get $get, Set $set) => $set('calories', ($get('carbs') * 4) + ($get('protein') * 4) + ($get('fats') * 9)))
+                                ->afterStateUpdated(fn (Get $get, Set $set) => $set('calories', ((int)$get('carbs') * 4) + ((int)$get('protein') * 4) + ((int)$get('fats') * 9)))
                                 ->suffix('g')
                                 ->required()
                                 ->integer(),
 
                             TextInput::make('fats')
                                 ->live(onBlur: true)
-                                ->afterStateUpdated(fn (Get $get, Set $set) => $set('calories', ($get('carbs') * 4) + ($get('protein') * 4) + ($get('fats') * 9)))
+                                ->afterStateUpdated(fn (Get $get, Set $set) => $set('calories', ((int)$get('carbs') * 4) + ((int)$get('protein') * 4) + ((int)$get('fats') * 9)))
                                 ->suffix('g')
                                 ->required(),
 
