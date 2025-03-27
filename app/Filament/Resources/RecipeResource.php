@@ -102,6 +102,7 @@ class RecipeResource extends Resource
                                 ->live(onBlur: true)
                                 ->afterStateUpdated(fn (Get $get, Set $set) => $set('calories', ((int)$get('carbs') * 4) + ((int)$get('protein') * 4) + ((int)$get('fats') * 9)))
                                 ->suffix('g')
+                                ->integer()
                                 ->required(),
 
                             TextInput::make('calories')
