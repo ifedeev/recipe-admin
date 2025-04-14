@@ -17,11 +17,10 @@ class RecipeFactory extends Factory
             'title' => $this->faker->title(),
             'imageUrl' => $this->faker->imageUrl(),
             'prepTime' => $this->faker->randomNumber(),
-            'likes' => $this->faker->randomNumber(),
             'calories' => $this->faker->randomNumber(),
             'protein' => $this->faker->randomNumber(),
             'carbs' => $this->faker->randomNumber(),
-            'fats' => $this->faker->word(),
+            'fats' => $this->faker->randomNumber(),
             'ingredients' => [
                 $this->faker->realText(random_int(10, 100)),
                 $this->faker->realText(random_int(10, 100)),

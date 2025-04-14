@@ -14,9 +14,9 @@ class RecipeResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'imageUrl' => $this->imageUrl,
+            'imageUrl' => asset('storage/'.$this->imageUrl),
             'prepTime' => $this->prepTime,
-            'likes' => $this->likes,
+            'likes' => $this->likes_count,
             'calories' => $this->calories,
             'protein' => $this->protein,
             'carbs' => $this->carbs,
@@ -24,8 +24,6 @@ class RecipeResource extends JsonResource
             'ingredients' => $this->ingredients,
             'instructions' => $this->instructions,
             'category' => $this->category,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
         ];
     }
 }
