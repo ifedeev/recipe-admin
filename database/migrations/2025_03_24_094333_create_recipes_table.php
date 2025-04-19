@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('calories')->default(0);
             $table->integer('protein')->default(0);
             $table->integer('carbs')->default(0);
-            $table->string('fats')->default(0);
+            $table->integer('fats')->default(0);
             $table->json('ingredients');
             $table->json('instructions');
             $table->string('category');

@@ -160,7 +160,7 @@ class RecipeResource extends Resource
                                     ->color('gray')
                                     ->alignEnd(),
 
-                                TextColumn::make('likes')
+                                TextColumn::make('likes_count')
                                     ->badge()
                                     ->color('danger')
                                     ->alignEnd()

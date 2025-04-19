@@ -60,6 +60,7 @@ class RecipeController extends Controller
         return response()->json(['message' => 'Recipe disliked!'], 200);
     }
 
+
     public function likes(Request $request)
     {
         $recipes = Recipe::whereHas('likes', static function ($query) use ($request) {

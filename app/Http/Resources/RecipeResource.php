@@ -17,6 +17,7 @@ class RecipeResource extends JsonResource
             'imageUrl' => asset('storage/'.$this->imageUrl),
             'prepTime' => $this->prepTime,
             'likes' => $this->likes_count,
+            'is_liked' => $this->resource->isLikedBy($request->headers->get('X-Device-Id')),
             'calories' => $this->calories,
             'protein' => $this->protein,
             'carbs' => $this->carbs,

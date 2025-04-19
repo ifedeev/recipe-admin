@@ -32,9 +32,19 @@ class Recipe extends Model
         return $this->hasMany(Like::class, 'recipe_id');
     }
 
+    public function isLiked(?string $deviceId): bool
+    {
+        if (is_null($deviceId)) {
+            return false;
+        }
+
+        return $this->likes()->where('device_id', $deviceId)->exists();
+    }
+
     protected function casts(): array
     {
         return [
+            'fats' => 'integer',
             'ingredients' => 'json',
             'instructions' => 'json',
             'category' => RecipeCategory::class,
