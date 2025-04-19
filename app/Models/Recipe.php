@@ -32,7 +32,7 @@ class Recipe extends Model
         return $this->hasMany(Like::class, 'recipe_id');
     }
 
-    public function isLiked(?string $deviceId): bool
+    public function isLikedBy(?string $deviceId): bool
     {
         if (is_null($deviceId)) {
             return false;
