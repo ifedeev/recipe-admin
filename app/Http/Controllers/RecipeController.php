@@ -28,13 +28,15 @@ class RecipeController extends Controller
         }
 
         if ($request->has('sort')) {
-            $recipes->orderBy($request->input('sort'), $request->input('sort_direction', 'asc'));
+            if ($request->input('sort') === 'likes') {
+                $recipes->orderBy('likes_count', $request->input('sort_direction'));
+            } else {
+                $recipes->orderBy($request->input('sort'), $request->input('sort_direction', 'asc'));
+            }
         }
-
 
         return RecipeResource::collection($recipes->paginate(10));
     }
-
 
     public function show(Recipe $recipe): RecipeResource
     {
@@ -45,7 +47,7 @@ class RecipeController extends Controller
     {
         $recipe->likes()
             ->create([
-                'device_id' => $request->header('X-Device-Id')
+                'device_id' => $request->header('X-Device-Id'),
             ]);
 
         return response()->json(['message' => 'Recipe liked!'], 201);
@@ -59,7 +61,6 @@ class RecipeController extends Controller
 
         return response()->json(['message' => 'Recipe disliked!'], 200);
     }
-
 
     public function likes(Request $request)
     {

@@ -11,7 +11,7 @@ Route::controller(RecipeController::class)
 
         Route::middleware(AuthDeviceMiddleware::class)
             ->group(static function () {
-                Route::post('/{recipes}/likes', 'likes');
+                Route::post('/likes', 'likes');
                 Route::post('/{recipe}/like', 'like');
                 Route::delete('/{recipe}/dislike', 'dislike');
             });
